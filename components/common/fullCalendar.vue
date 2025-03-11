@@ -1,7 +1,9 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center p-4">
-    <div class="w-full max-w-4xl shadow-lg rounded-lg">
-      <FullCalendar :options="calendarOptions"/>
+  <div class="mx-auto max-w-7xl h-screen sm:px-6 lg:px-8">
+    <div class="min-h-screen flex items-center justify-center p-4">
+      <div class="w-full max-w-4xl shadow-lg rounded-lg">
+        <FullCalendar :options="calendarOptions"/>
+      </div>
     </div>
   </div>
 </template>

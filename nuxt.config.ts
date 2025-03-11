@@ -6,6 +6,7 @@ export default defineNuxtConfig({
         '@nuxt/ui',
         '@pinia/nuxt',
         'pinia-plugin-persistedstate/nuxt',
+        '@nuxt/image',
     ],
 
     compatibilityDate: '2025-03-07',
