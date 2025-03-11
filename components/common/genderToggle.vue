@@ -13,13 +13,18 @@
 </template>
 
 <script setup lang="ts">
-import {useI18n} from "vue-i18n";
-import {ref, computed, watch} from 'vue'
-import {useUserStore} from '~/stores/user.js'
+import {ref, computed, watch, onMounted} from 'vue'
+import {useI18n} from 'vue-i18n'
+import {useUserStore} from '~/stores/user'
 
 const {t, loadLocaleMessages, locale} = useI18n()
 const userStore = useUserStore()
-const gender = ref(userStore.gender || 'male')
+
+// Initialize gender value from userStore; default to 'male'
+const gender = ref<string>(userStore.gender || 'male')
+
+// Use your toast composable (make sure it's set up in your project)
+const toast = useToast()
 
 // On mount, load and set the locale from userStore.language (or fallback to "en")
 onMounted(async () => {
@@ -28,13 +33,17 @@ onMounted(async () => {
   locale.value = lang
 })
 
-// The computed property is true when gender is "female" so that the active style (pink) applies.
+// Computed property: returns true if gender is 'female'
 const isFemale = computed<boolean>({
   get() {
     return gender.value === 'female'
   },
   set(val: boolean) {
     gender.value = val ? 'female' : 'male'
+    toast.add({
+      title: t('genderChanged'),
+      timeout: 1500,
+    })
   }
 })
 

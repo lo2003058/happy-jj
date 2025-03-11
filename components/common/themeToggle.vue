@@ -25,6 +25,9 @@ const userStore = useUserStore()
 // Initialize theme from store if available, otherwise default to 'light'
 const theme = ref(userStore.theme || 'light')
 
+// Use your toast composable (make sure it's set up in your project)
+const toast = useToast()
+
 // Create a computed property that converts the boolean toggle to theme string
 const isDark = computed<boolean>({
   get() {
@@ -32,6 +35,10 @@ const isDark = computed<boolean>({
   },
   set(val: boolean) {
     theme.value = val ? 'dark' : 'light'
+    toast.add({
+      title: t('themeChanged'),
+      timeout: 1500,
+    })
   }
 })
 

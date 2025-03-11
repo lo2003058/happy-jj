@@ -14,20 +14,31 @@ import interactionPlugin from '@fullcalendar/interaction'
 import {computed} from 'vue'
 import {useI18n} from 'vue-i18n'
 import {useUserStore} from '~/stores/user'
+import {calculateSafePeriodEvents} from '~/utils/safePeriod' // adjust the import path as needed
 
 const userStore = useUserStore()
-const {locale} = useI18n()
+const {locale, t} = useI18n()
 
-// Create a computed property for events to ensure reactivity.
-const calendarEvents = computed(() => userStore.events || [])
+// userStore.events should be an array of first-day date strings (e.g., ['2025-03-14']).
+const firstDayDates = computed(() => Array.isArray(userStore.events) ? userStore.events : [])
 
-// Function to handle a date click event and update events in userStore.
+// Generate events based on the safe period calculation.
+const safePeriodEvents = computed(() => calculateSafePeriodEvents(firstDayDates.value, t))
+
+// Use safePeriodEvents as the calendar events.
+const calendarEvents = computed(() => {
+  return safePeriodEvents.value.length > 0 ? safePeriodEvents.value : []
+})
+
+// Update the events array when a date is clicked.
 function handleDateClick(info: { dateStr: string }) {
-  const newEvent = {title: 'test Event', date: info.dateStr}
-  userStore.setEvents([...calendarEvents.value, newEvent])
+  console.log("Date clicked:", info.dateStr)
+  // Append the clicked date to the existing events array.
+  const currentEvents = Array.isArray(userStore.events) ? userStore.events : []
+  const updatedEvents = [...currentEvents, info.dateStr]
+  userStore.setEvents(updatedEvents)
 }
 
-// Define calendar options as a computed property.
 const calendarOptions = computed(() => ({
   plugins: [dayGridPlugin, interactionPlugin],
   initialView: 'dayGridMonth',
@@ -40,7 +51,7 @@ const calendarOptions = computed(() => ({
 </script>
 
 <style scoped>
-/* Override FullCalendar header table background and text color in dark mode */
+/* Override FullCalendar header styles in dark mode */
 :global(.dark .fc .fc-col-header) {
   background-color: #2d3748 !important;
   color: #e2e8f0 !important;

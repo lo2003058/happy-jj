@@ -1,11 +1,17 @@
 export default {
   "loading": '加載中...',
   "gender": '性別',
+  "genderChanged": '性別已更改',
   "male": '男性',
   "female": '女性',
   "settings": '設定',
   "theme": '主題',
+  "themeChanged": '主題已更改',
   "language": '語言',
   "resetButton": '重置為預設值',
   "clearAllEvents": '清除所有事件',
+  "safe": '安全',
+  'danger': '危險',
+  'menstruation': '月經',
+  'tools': '工具',
 }

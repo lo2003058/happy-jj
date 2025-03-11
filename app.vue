@@ -1,8 +1,14 @@
 <template>
   <!--  <WelcomeComponent/>-->
+
   <GenderSelection v-if="!userStore.gender"/>
-  <SettingComponent v-else/>
+
+  <ToolsComponent v-if="userStore.gender"/>
+  <SettingComponent v-if="userStore.gender"/>
+
   <FullCalendar/>
+
+  <UNotifications/>
 </template>
 
 <script setup lang="ts">
@@ -13,6 +19,7 @@ import FullCalendar from '~/components/common/fullCalendar.vue'
 import GenderSelection from '~/components/common/genderSelection.vue'
 import WelcomeComponent from '~/components/common/welcomeComponent.vue'
 import SettingComponent from '~/components/common/settingComponent.vue'
+import ToolsComponent from "~/components/common/toolsComponent.vue";
 
 const userStore = useUserStore()
 const {locale} = useI18n()

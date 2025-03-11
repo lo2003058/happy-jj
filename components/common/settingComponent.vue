@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <!-- Top-right settings button -->
-    <div class="absolute top-4 right-4 z-20">
+    <div class="absolute top-4 right-4">
       <UButton
           icon="i-heroicons-cog-6-tooth-solid"
           size="md"
@@ -11,7 +11,7 @@
       />
     </div>
 
-    <USlideover v-model="isOpen" :transition="false">
+    <USlideover v-model="isOpen" :transition="true">
       <div class="flex flex-col h-full">
         <UCard class="flex-1 flex flex-col overflow-hidden">
           <template #header>
@@ -44,7 +44,11 @@
                 color="orange"
                 variant="solid"
                 size="md"
-                @click="handleClearAllEvents"
+                @click="toast.add({
+                  title: 'Clear events?',
+                  timeout: 0,
+                  actions: clearActions,
+                })"
             >
               {{ t('clearAllEvents') }}
             </UButton>
@@ -53,13 +57,15 @@
                 color="red"
                 variant="solid"
                 size="md"
-                @click="handleResetToDefault"
+                @click="toast.add({
+                  title: 'Reset to default?',
+                  timeout: 0,
+                  actions: resetActions,
+                })"
             >
               {{ t('resetButton') }}
             </UButton>
           </div>
-          <UDivider class="pb-2"/>
-          <CopyrightComponent/>
         </div>
       </div>
     </USlideover>
@@ -78,6 +84,41 @@ import CopyrightComponent from "~/components/common/copyrightComponent.vue";
 const {t, locale, loadLocaleMessages} = useI18n()
 const userStore = useUserStore()
 const isOpen = ref(false)
+
+const toast = useToast()
+
+const resetActions = ref([{
+  label: 'Yes',
+  click: () => {
+    userStore.clearAllData()
+    toast.add({
+      title: 'Data reset',
+      timeout: 1500,
+    })
+    window.location.reload()
+  }
+}, {
+  label: 'No',
+  click: () => toast.add({
+    title: 'Reset cancelled',
+    timeout: 1500
+  })
+}])
+
+const clearActions = ref([{
+  label: 'Yes',
+  click: () => {
+    userStore.clearEvents()
+    // Close the settings panel after clearing events
+    isOpen.value = false;
+  }
+}, {
+  label: 'No',
+  click: () => toast.add({
+    title: 'Clear cancelled',
+    timeout: 1500
+  })
+}])
 
 // On mount, load and set the locale from userStore.language (or fallback to "en")
 onMounted(async () => {
@@ -99,13 +140,21 @@ watch(
 
 const handleResetToDefault = () => {
   userStore.clearAllData()
+  toast.add({
+    title: 'Data reset',
+    timeout: 1500
+  })
   window.location.reload()
 }
 
 const handleClearAllEvents = () => {
   userStore.clearEvents()
   // Close the settings panel after clearing events
-  isOpen.value = false
+  isOpen.value = false;
+  toast.add({
+    title: 'Events cleared',
+    timeout: 1500
+  })
 }
 </script>
 

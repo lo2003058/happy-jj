@@ -29,6 +29,9 @@ export const useUserStore = defineStore('user', {
     },
     setEvents(events) {
       this.events = events
+    },
+    addMenstruationDate(date) {
+      this.events = [...this.events, date];
     }
   },
   persist: true,

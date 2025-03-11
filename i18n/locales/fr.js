@@ -1,11 +1,17 @@
 export default {
   "loading": 'Chargement...',
   "gender": 'Sexe',
+  "genderChanged": 'Changement de genre',
   "male": 'Homme',
   "female": 'Femme',
   "settings": 'Paramètres',
   "theme": 'Thème',
+  "themeChanged": 'Thème changé',
   "language": 'Langue',
   "resetButton": 'Réinitialiser par défaut',
   "clearAllEvents": 'Effacer tous les événements',
+  "safe": 'Sûr',
+  'danger': 'Dangereux',
+  'menstruation': 'Menstruation',
+  'tools': 'Outils',
 }
