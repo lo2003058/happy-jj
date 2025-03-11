@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" @after-leave="onFinish">
+  <transition name="fade">
     <div v-if="visible" class="fixed inset-0 flex flex-col justify-center items-center bg-white z-50">
       <NuxtImg
           :src="logo"
@@ -10,13 +10,14 @@
           class="w-96 h-48"
       />
       <div class="text-xl text-gray-700 animate-bounce">
-        Loading...
+        {{ t('loading') }}
       </div>
     </div>
   </transition>
 </template>
 
 <script setup>
+const { t } = useI18n()
 import {ref, onMounted} from 'vue'
 
 // Replace with the actual path to your logo image
@@ -28,10 +29,6 @@ onMounted(() => {
     visible.value = false
   }, 2500)
 })
-
-const onFinish = () => {
-  console.log('Welcome screen finished')
-}
 </script>
 
 <style scoped>

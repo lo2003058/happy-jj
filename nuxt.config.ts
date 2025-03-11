@@ -7,7 +7,36 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         'pinia-plugin-persistedstate/nuxt',
         '@nuxt/image',
+        '@nuxtjs/i18n',
     ],
+
+    i18n: {
+        locales: [
+            {
+                code: 'en',
+                file: 'en.js'
+            },
+            {
+                code: 'fr',
+                file: 'fr.js'
+            },
+            {
+                code: 'zh-HK',
+                file: 'zh-HK.js'
+            },
+            {
+                code: 'zh-TW',
+                file: 'zh-TW.js'
+            },
+            {
+                code: 'zh-CN',
+                file: 'zh-CN.js'
+            }
+        ],
+        lazy: true,
+        langDir: 'locales/',
+        defaultLocale: 'en'
+    },
 
     compatibilityDate: '2025-03-07',
 })

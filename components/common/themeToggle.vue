@@ -1,5 +1,5 @@
 <template>
-  <UFormGroup label="Theme" class="my-2">
+  <UFormGroup :label="t('theme')" class="my-2">
     <UToggle
         size="xl"
         name="theme"
@@ -17,7 +17,9 @@
 <script setup lang="ts">
 import {ref, computed, watch, onMounted} from 'vue'
 import {useUserStore} from '~/stores/user'
+import {useI18n} from 'vue-i18n'
 
+const {t, loadLocaleMessages, locale} = useI18n()
 const userStore = useUserStore()
 
 // Initialize theme from store if available, otherwise default to 'light'
@@ -34,7 +36,11 @@ const isDark = computed<boolean>({
 })
 
 // On mount, if no theme is stored, check system preference and update theme
-onMounted(() => {
+// load and set the locale from userStore.language (or fallback to "en")
+onMounted(async () => {
+  const lang = userStore.language || 'en'
+  await loadLocaleMessages(lang)
+  locale.value = lang
   if (!userStore.theme) {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     theme.value = prefersDark ? 'dark' : 'light'

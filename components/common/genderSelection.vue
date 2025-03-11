@@ -29,7 +29,9 @@
               @mouseleave="hoveredGender = null"
           >
             <div class="text-center px-4">
-              <h2 class="text-xl md:text-2xl font-bold mb-4">Male</h2>
+              <h2 class="text-xl md:text-2xl font-bold mb-4">
+                {{ t('male') }}
+              </h2>
               <NuxtImg
                   class="transition-transform"
                   :src="maleImage"
@@ -50,7 +52,9 @@
               @mouseleave="hoveredGender = null"
           >
             <div class="text-center px-4">
-              <h2 class="text-xl md:text-2xl font-bold mb-4">Female</h2>
+              <h2 class="text-xl md:text-2xl font-bold mb-4">
+                {{ t('female') }}
+              </h2>
               <NuxtImg
                   class="transition-transform"
                   :src="femaleImage"
@@ -68,10 +72,11 @@
   </transition>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref} from 'vue'
+import {useI18n} from 'vue-i18n'
 import {useUserStore} from '~/stores/user.js'
-
+const {t, loadLocaleMessages, locale} = useI18n()
 const userStore = useUserStore()
 const visible = ref(true)
 const selectedGender = ref(null)
@@ -81,7 +86,14 @@ const hoveredGender = ref(null)
 const maleImage = '/images/male/boy_h.png'
 const femaleImage = '/images/female/girl_h.png'
 
-const selectGender = (gender) => {
+// On mount, load and set the locale from userStore.language (or fallback to "en")
+onMounted(async () => {
+  const lang = userStore.language || 'en'
+  await loadLocaleMessages(lang)
+  locale.value = lang
+})
+
+const selectGender = (gender: string) => {
   selectedGender.value = gender
   visible.value = false
 }
