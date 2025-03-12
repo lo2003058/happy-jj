@@ -21,9 +21,9 @@
 
         <!-- Content container with two sides -->
         <div class="relative flex flex-col md:flex-row h-full">
-          <!-- Male side -->
+          <!-- Male side: appears on top in mobile -->
           <div
-              class="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center items-center text-white z-10 transition-all duration-300"
+              class="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center items-center text-white z-10 transition-all duration-300 order-1"
               :class="{ darkened: hoveredGender && hoveredGender !== 'male' }"
               @mouseenter="hoveredGender = 'male'"
               @mouseleave="hoveredGender = null"
@@ -33,10 +33,8 @@
                 {{ t('male') }}
               </h2>
               <NuxtImg
-                  class="transition-transform"
+                  class="transition-transform w-24 md:w-[238px] h-auto"
                   :src="maleImage"
-                  width="238"
-                  height="342"
                   quality="50"
                   :class="{ zoom: hoveredGender === 'male' }"
                   @click="selectGender('male')"
@@ -46,7 +44,7 @@
 
           <!-- Female side -->
           <div
-              class="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center items-center text-white z-10 transition-all duration-300"
+              class="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center items-center text-white z-10 transition-all duration-300 order-2"
               :class="{ darkened: hoveredGender && hoveredGender !== 'female' }"
               @mouseenter="hoveredGender = 'female'"
               @mouseleave="hoveredGender = null"
@@ -56,10 +54,8 @@
                 {{ t('female') }}
               </h2>
               <NuxtImg
-                  class="transition-transform"
+                  class="transition-transform w-24 md:w-[238px] h-auto"
                   :src="femaleImage"
-                  width="238"
-                  height="342"
                   quality="50"
                   :class="{ zoom: hoveredGender === 'female' }"
                   @click="selectGender('female')"
@@ -73,7 +69,7 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
 import {useI18n} from 'vue-i18n'
 import {useUserStore} from '~/stores/user.js'
 
@@ -83,11 +79,11 @@ const visible = ref(true)
 const selectedGender = ref(null)
 const hoveredGender = ref(null)
 
-// Only static images are used
+// Static images used for genders
 const maleImage = '/images/male/boy_h.png'
 const femaleImage = '/images/female/girl_h.png'
 
-// On mount, load and set the locale from userStore.language (or fallback to "en")
+// Load locale on mount
 onMounted(async () => {
   const lang = userStore.language || 'en'
   await loadLocaleMessages(lang)
@@ -138,7 +134,7 @@ const handleAfterLeave = () => {
   clip-path: polygon(0 50%, 100% 40%, 100% 100%, 0 100%);
 }
 
-/* On desktop (md and above): revert to left/right trapezoids */
+/* Desktop (md and above): left/right trapezoids */
 @media (min-width: 768px) {
   .trapezoid-first {
     clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
