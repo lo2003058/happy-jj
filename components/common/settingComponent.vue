@@ -2,13 +2,15 @@
   <div class="relative">
     <!-- Top-right settings button -->
     <div class="absolute top-4 right-4">
-      <UButton
-          icon="i-heroicons-cog-6-tooth-solid"
-          size="md"
-          color="gray"
-          variant="solid"
-          @click="isOpen = true"
-      />
+      <UTooltip :text="t('settings')" :popper="{ arrow: true, placement: 'left' }">
+        <UButton
+            icon="i-heroicons-cog-6-tooth-solid"
+            size="md"
+            color="gray"
+            variant="solid"
+            @click="isOpen = true"
+        />
+      </UTooltip>
     </div>
 
     <USlideover v-model="isOpen" :transition="true">

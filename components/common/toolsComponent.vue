@@ -2,13 +2,15 @@
   <div class="relative">
     <!-- Top-right settings button -->
     <div class="absolute top-4 left-4">
-      <UButton
-          icon="i-heroicons-wrench-screwdriver-solid"
-          size="md"
-          color="gray"
-          variant="solid"
-          @click="isOpen = true"
-      />
+      <UTooltip :text="t('tools')" :popper="{ arrow: true, placement: 'right' }">
+        <UButton
+            icon="i-heroicons-wrench-screwdriver-solid"
+            size="md"
+            color="gray"
+            variant="solid"
+            @click="isOpen = true"
+        />
+      </UTooltip>
     </div>
 
     <USlideover
@@ -34,6 +36,7 @@
 
           <!-- Tools area -->
           <div class="flex-1 overflow-auto">
+            <CookAdviceComponent/>
 
           </div>
         </UCard>
@@ -52,6 +55,7 @@ import {ref, onMounted, watch} from 'vue'
 import {useI18n} from 'vue-i18n'
 import {useUserStore} from '~/stores/user'
 import CopyrightComponent from "~/components/common/copyrightComponent.vue";
+import CookAdviceComponent from "~/components/male/cookAdviceComponent.vue";
 
 const {t, locale, loadLocaleMessages} = useI18n()
 const userStore = useUserStore()

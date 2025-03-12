@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex items-center justify-center sm:px-6 lg:px-8">
     <!-- Calendar container: full width on mobile, limited width on larger screens -->
-    <div class="w-full max-w-4xl shadow-lg rounded-lg overflow-hidden p-4 border dark:border-gray-700 dark:bg-gray-800">
+    <div class="w-full max-w-4xl shadow-2xl rounded-2xl overflow-hidden p-4 border bg-white dark:border-gray-700 dark:bg-gray-600">
       <FullCalendar :options="calendarOptions"/>
     </div>
   </div>

@@ -2,6 +2,18 @@
 export default defineNuxtConfig({
     devtools: {enabled: false},
 
+    app: {
+        head: {
+            title: 'Happy JJ',
+            meta: [
+                {
+                    name: 'description',
+                    content: 'A period tracking app for Happy JJs'
+                }
+            ]
+        }
+    },
+
     modules: [
         '@nuxt/ui',
         '@pinia/nuxt',
