@@ -1,10 +1,16 @@
 # Period Tracking App
 
-A modern, responsive web application for tracking menstrual cycles and calculating safe periods with personalized experiences based on gender preferences.
+A modern, responsive web application for tracking menstrual cycles and calculating safe periods with personalized
+experiences based on gender preferences.
+
+## Deploy status
+
+![Vercel Deploy](https://deploy-badge.vercel.app/vercel/happy-jj)
 
 ## Development Roadmap
 
 ### Currently Implemented
+
 - **Calendar Tracking**: Track menstruation dates with a full-featured calendar
 - **Gender-Specific Experience**: Customize the app based on your gender preference
 - **Safe Period Calculation**: Automatic calculation of safe periods based on tracked data
@@ -16,14 +22,20 @@ A modern, responsive web application for tracking menstrual cycles and calculati
 - **Data Privacy**: All data is stored locally in your browser
 
 ### In Active Development
+
 - **Cooking Advice Tool**: Providing meal suggestions based on menstrual cycle phases
+    - Default recipes and nutritional guidance for each phase
     - Modal interface structure created
     - Integration with tools menu implemented
     - Recipe database and filtering system in progress
     - Nutritional guidance tailored to cycle phases pending implementation
 
 ### Planned Features
-- Optional cloud sync for cross-device usage (Mobile app)
+
+- **Mobile Application**: Native apps for iOS and Android with cross-platform data synchronization
+- **Cloud Synchronization**: Optional cloud storage for accessing your data across multiple devices
+- **AI-Powered Features**:
+    - Personalized recommendations using AI services (OpenAI standard API)
 
 ## Technologies
 

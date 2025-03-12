@@ -76,6 +76,7 @@
 import {ref} from 'vue'
 import {useI18n} from 'vue-i18n'
 import {useUserStore} from '~/stores/user.js'
+
 const {t, loadLocaleMessages, locale} = useI18n()
 const userStore = useUserStore()
 const visible = ref(true)
@@ -93,7 +94,7 @@ onMounted(async () => {
   locale.value = lang
 })
 
-const selectGender = (gender: string) => {
+const selectGender = (gender: any) => {
   selectedGender.value = gender
   visible.value = false
 }
