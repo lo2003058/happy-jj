@@ -1,4 +1,7 @@
 export default {
+  "fullcalendar": {
+    "today": '今日',
+  },
   "loading": 'Load緊啦...',
   "gender": '性別',
   "genderChanged": '性別改咗啦',
@@ -8,10 +11,18 @@ export default {
   "theme": '主題',
   "themeChanged": '主題換咗啦',
   "language": '語言',
-  "resetButton": '返去原廠設定',
-  "clearAllEvents": '清晒所有嘢日子',
-  "safe": '穩陣',
-  'danger': '危險啦',
-  'menstruation': '嚟咗大姨媽',
+  "resetButton": '返去原廠設定?',
+  "clearAllEvents": '清晒所有日子?',
+  "safe": '安全期',
+  'danger': '危險期',
+  'menstruation': '大姨媽',
   'tools': '架生',
+  'projectStatus': {
+    'unknown': '唔知點樣',
+    'developing': '仲開發緊',
+  },
+  'dateConflict': '加唔到日期',
+  'dateConflictDescription': '邊有咁快嚟多次至少要隔{days}日啦',
+  'dateAdded': '幫你加咗個日期啦',
+  'dateRemoved': '幫你Del咗個日期啦',
 }

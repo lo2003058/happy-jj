@@ -72,7 +72,7 @@
   </transition>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {ref} from 'vue'
 import {useI18n} from 'vue-i18n'
 import {useUserStore} from '~/stores/user.js'
@@ -94,7 +94,7 @@ onMounted(async () => {
   locale.value = lang
 })
 
-const selectGender = (gender: any) => {
+const selectGender = (gender) => {
   selectedGender.value = gender
   visible.value = false
 }

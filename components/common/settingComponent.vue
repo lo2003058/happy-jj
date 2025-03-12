@@ -47,7 +47,7 @@
                 variant="solid"
                 size="md"
                 @click="toast.add({
-                  title: 'Clear events?',
+                  title: t('clearAllEvents'),
                   timeout: 0,
                   actions: clearActions,
                 })"
@@ -60,7 +60,7 @@
                 variant="solid"
                 size="md"
                 @click="toast.add({
-                  title: 'Reset to default?',
+                  title: t('resetButton'),
                   timeout: 0,
                   actions: resetActions,
                 })"
@@ -81,7 +81,6 @@ import {useUserStore} from '~/stores/user'
 import GenderToggle from '~/components/common/genderToggle.vue'
 import ThemeToggle from '~/components/common/themeToggle.vue'
 import LanguageComponent from '~/components/common/languageComponent.vue'
-import CopyrightComponent from "~/components/common/copyrightComponent.vue";
 
 const {t, locale, loadLocaleMessages} = useI18n()
 const userStore = useUserStore()

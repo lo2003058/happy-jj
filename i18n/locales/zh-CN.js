@@ -1,4 +1,7 @@
 export default {
+  "fullcalendar": {
+    "today": '今天',
+  },
   "loading": '加载中...',
   "gender": '性別',
   "genderChanged": '性別已更改',
@@ -8,10 +11,18 @@ export default {
   "theme": '主题',
   "themeChanged": '主题已更改',
   "language": '语言',
-  "resetButton": '重置为默认设置',
-  "clearAllEvents": '清除所有事件',
+  "resetButton": '重置为默认设置?',
+  "clearAllEvents": '清除日历?',
   "safe": '安全',
   'danger': '危险',
   'menstruation': '月经',
   'tools': '工具',
+  'projectStatus': {
+    'unknown': '状态未知',
+    'developing': '目前正在开发中',
+  },
+  'dateConflict': '无法添加日期',
+  'dateConflictDescription': '所选日期必须与现有日期相隔至少{days}天',
+  'dateAdded': '日期已添加',
+  'dateRemoved': '日期已移除',
 }

@@ -1,4 +1,7 @@
 export default {
+  "fullcalendar": {
+    "today": "Aujourd\'hui",
+  },
   "loading": 'Chargement...',
   "gender": 'Sexe',
   "genderChanged": 'Changement de genre',
@@ -8,10 +11,18 @@ export default {
   "theme": 'Thème',
   "themeChanged": 'Thème changé',
   "language": 'Langue',
-  "resetButton": 'Réinitialiser par défaut',
-  "clearAllEvents": 'Effacer tous les événements',
+  "resetButton": 'Réinitialiser?',
+  "clearAllEvents": 'Effacer le calendrier?',
   "safe": 'Sûr',
   'danger': 'Dangereux',
   'menstruation': 'Menstruation',
   'tools': 'Outils',
+  'projectStatus': {
+    'unknown': 'Statut du projet inconnu.',
+    'developing': 'Actuellement en développement',
+  },
+  'dateConflict': "Impossible d\'ajouter la date",
+  'dateConflictDescription': "La date sélectionnée doit être espacée d\'au moins {days} jours des dates existantes",
+  'dateAdded': 'Date ajoutée',
+  'dateRemoved': 'Date retirée',
 }

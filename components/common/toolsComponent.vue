@@ -31,12 +31,14 @@
                 padded
                 @click="isOpen = false"
             />
-            <h2 class="text-xl font-bold">{{ t('tools') }}</h2>
+            <h2 class="text-xl font-bold select-none">{{ t('tools') }}</h2>
           </template>
 
           <!-- Tools area -->
           <div class="flex-1 overflow-auto">
-            <CookAdviceComponent/>
+<!--            <CookAdviceComponent/>-->
+
+            <ProjectStatusComponent status="developing"/>
 
           </div>
         </UCard>
@@ -56,6 +58,7 @@ import {useI18n} from 'vue-i18n'
 import {useUserStore} from '~/stores/user'
 import CopyrightComponent from "~/components/common/copyrightComponent.vue";
 import CookAdviceComponent from "~/components/male/cookAdviceComponent.vue";
+import ProjectStatusComponent from "~/components/common/projectStatusComponent.vue";
 
 const {t, locale, loadLocaleMessages} = useI18n()
 const userStore = useUserStore()
