@@ -38,7 +38,7 @@
           <div class="flex-1 overflow-auto">
             <CookAdviceComponent/>
 
-            <ProjectStatusComponent status="developing" v-if="config.public.nodeEnv !== 'development'"/>
+<!--            <ProjectStatusComponent status="developing" v-if="config.public.nodeEnv !== 'development'"/>-->
           </div>
         </UCard>
 
