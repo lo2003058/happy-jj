@@ -89,6 +89,33 @@ experiences based on gender preferences.
 4. Customize settings through the gear icon in the top-right corner
 5. Access additional tools through the tools menu in the top-left corner
 
+### Setting up AI Features
+
+To use the AI-powered recipe generation:
+
+1. Navigate to Settings (gear icon in top-right corner)
+2. Configure your OpenAI-compatible API settings:
+    - Enter your API model name (e.g., "gpt-4", "claude-3-opus-20240229", etc.)
+    - Enter your API endpoint URL:
+        - OpenAI: `https://api.openai.com/v1`
+        - Anthropic: `https://api.anthropic.com/v1`
+        - Mistral: `https://api.mistral.ai/v1`
+        - Groq: `https://api.groq.com/openai/v1`
+        - Self-hosted models: your custom endpoint URL
+    - Enter your API secret key
+3. Access the Cooking Advice tool (tools menu in top-left corner)
+4. Toggle AI mode to enable custom recipe generation
+5. Personalize your recipe requirements:
+    - Add foods to avoid (up to 10 items)
+    - Add favorite foods (up to 10 items) and select up to 5 preferences
+    - Select recipe type, difficulty level, and preparation time
+6. Click "Generate Recipe" to create a custom AI-powered recipe
+7. Save recipes you like to your personal collection
+
+> **Note**: This application supports any API service that follows the OpenAI-compatible API format, not just OpenAI's
+> services. You can use various AI providers or self-hosted models as long as they implement the standard OpenAI API
+> interface.
+
 ## Credits
 
-Designed and developed with ❤️ by lo2003058
+Designed and developed by lo2003058
