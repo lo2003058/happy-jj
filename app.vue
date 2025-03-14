@@ -1,5 +1,5 @@
 <template>
-  <WelcomeComponent/>
+  <WelcomeComponent v-if="config.public.nodeEnv !== 'development'"/>
 
   <div class="bg-gray-100 dark:bg-gray-800 min-h-screen">
     <GenderSelection v-if="!userStore.gender"/>
@@ -24,6 +24,7 @@ import WelcomeComponent from '~/components/common/welcomeComponent.vue'
 import SettingComponent from '~/components/common/settingComponent.vue'
 import ToolsComponent from "~/components/common/toolsComponent.vue";
 
+const config = useRuntimeConfig();
 const userStore = useUserStore()
 const {locale} = useI18n()
 

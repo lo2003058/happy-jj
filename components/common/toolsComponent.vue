@@ -36,10 +36,9 @@
 
           <!-- Tools area -->
           <div class="flex-1 overflow-auto">
-<!--            <CookAdviceComponent/>-->
+            <CookAdviceComponent/>
 
-            <ProjectStatusComponent status="developing"/>
-
+            <ProjectStatusComponent status="developing" v-if="config.public.nodeEnv !== 'development'"/>
           </div>
         </UCard>
 
@@ -57,9 +56,10 @@ import {ref, onMounted, watch} from 'vue'
 import {useI18n} from 'vue-i18n'
 import {useUserStore} from '~/stores/user'
 import CopyrightComponent from "~/components/common/copyrightComponent.vue";
-import CookAdviceComponent from "~/components/male/cookAdviceComponent.vue";
+import CookAdviceComponent from "~/components/cookAdvice/cookAdviceComponent.vue";
 import ProjectStatusComponent from "~/components/common/projectStatusComponent.vue";
 
+const config = useRuntimeConfig();
 const {t, locale, loadLocaleMessages} = useI18n()
 const userStore = useUserStore()
 const isOpen = ref(false)

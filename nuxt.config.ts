@@ -22,6 +22,13 @@ export default defineNuxtConfig({
         '@nuxtjs/i18n',
     ],
 
+
+    runtimeConfig: {
+        public: {
+            nodeEnv: process.env.NODE_ENV,
+        }
+    },
+
     i18n: {
         locales: [
             {

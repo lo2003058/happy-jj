@@ -20,22 +20,25 @@ experiences based on gender preferences.
     - French
     - Chinese (Hong Kong, Taiwan, and Mainland China variants)
 - **Data Privacy**: All data is stored locally in your browser
+- **AI Integration**:
+    - Custom OpenAI API configuration
+    - AI-powered recipe generation
 
 ### In Active Development
 
-- **Cooking Advice Tool**: Providing meal suggestions based on menstrual cycle phases
-    - Default recipes and nutritional guidance for each phase
-    - Modal interface structure created
-    - Integration with tools menu implemented
-    - Recipe database and filtering system in progress
-    - Nutritional guidance tailored to cycle phases pending implementation
+- **Cooking Advice Tool**: Advanced meal suggestions based on menstrual cycle phases
+    - ✅ Modal interface with responsive grid layout
+    - ✅ Default recipe database with multilingual support
+    - ✅ Recipe filtering by type, difficulty, and preparation time
+    - ✅ Personal preference system (favorite foods and foods to avoid)
+    - ✅ AI-generated custom recipes through OpenAI integration
+    - ✅ Recipe storage and management system
+    - 🔄 Additional nutritional guidance tailored to cycle phases
 
 ### Planned Features
 
 - **Mobile Application**: Native apps for iOS and Android with cross-platform data synchronization
 - **Cloud Synchronization**: Optional cloud storage for accessing your data across multiple devices
-- **AI-Powered Features**:
-    - Personalized recommendations using AI services (OpenAI standard API)
 
 ## Technologies
 

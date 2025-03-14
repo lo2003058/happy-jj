@@ -31,10 +31,11 @@
           </template>
 
           <!-- Content area -->
-          <div class="flex-1 overflow-auto">
+          <div class="flex-1 overflow-auto p-2">
             <GenderToggle/>
             <ThemeToggle/>
             <LanguageComponent/>
+            <AiApiSettingComponent/>
           </div>
         </UCard>
 
@@ -81,6 +82,7 @@ import {useUserStore} from '~/stores/user'
 import GenderToggle from '~/components/common/genderToggle.vue'
 import ThemeToggle from '~/components/common/themeToggle.vue'
 import LanguageComponent from '~/components/common/languageComponent.vue'
+import AiApiSettingComponent from "~/components/common/aiApiSettingComponent.vue";
 
 const {t, locale, loadLocaleMessages} = useI18n()
 const userStore = useUserStore()
