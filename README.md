@@ -5,9 +5,7 @@ experiences based on gender preferences.
 
 ## Deploy status
 
-![Vercel Deploy](https://deploy-badge.vercel.app/vercel/happy-jj)
-
-**Live demo:** [https://happy-jj.vercel.app/](https://happy-jj.vercel.app/)
+**Live demo:** [https://happy-jj.pages.dev/](https://happy-jj.pages.dev/)
 
 ## Development Roadmap
 
