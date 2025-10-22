@@ -1,17 +1,18 @@
 <template>
-  <WelcomeComponent v-if="config.public.nodeEnv !== 'development'"/>
+  <div>
+    <WelcomeComponent v-if="config.public.nodeEnv !== 'development'"/>
 
-  <div class="bg-gray-100 dark:bg-gray-800 min-h-screen">
-    <GenderSelection v-if="!userStore.gender"/>
+    <div class="bg-gray-100 dark:bg-gray-800 min-h-screen">
+      <GenderSelection v-if="!userStore.gender"/>
 
-    <ToolsComponent v-if="userStore.gender"/>
-    <SettingComponent v-if="userStore.gender"/>
+      <ToolsComponent v-if="userStore.gender"/>
+      <SettingComponent v-if="userStore.gender"/>
 
-    <FullCalendar/>
+      <FullCalendar/>
+    </div>
 
     <UNotifications/>
   </div>
-
 </template>
 
 <script setup lang="ts">

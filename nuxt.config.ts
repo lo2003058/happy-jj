@@ -58,4 +58,10 @@ export default defineNuxtConfig({
     },
 
     compatibilityDate: '2025-03-07',
+
+    vite: {
+        build: {
+            sourcemap: false,
+        },
+    },
 })
