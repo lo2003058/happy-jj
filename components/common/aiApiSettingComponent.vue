@@ -1,10 +1,10 @@
 <template>
   <UFormGroup :label="t('aiApiEndpointModel.title')" class="my-2">
-    <UInput v-model="aiApiEndpointModel" @blur="saveAiApiEndpointModel"/>
+    <UInput v-model="aiApiEndpointModel" @blur="saveAiApiEndpointModel" placeholder="eg: gpt-4.1-nano"/>
   </UFormGroup>
 
   <UFormGroup :label="t('aiApiEndpoint.title')" class="my-2">
-    <UInput v-model="aiApiEndpoint" @blur="saveAiApiEndpoint"/>
+    <UInput v-model="aiApiEndpoint" @blur="saveAiApiEndpoint" placeholder="eg: https://api.openai.com/v1"/>
   </UFormGroup>
 
   <UFormGroup :label="t('aiApiSecret.title')" class="my-2">

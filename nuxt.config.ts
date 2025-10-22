@@ -1,7 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: {enabled: false},
-
     app: {
         head: {
             title: 'Happy JJ',
@@ -13,7 +12,6 @@ export default defineNuxtConfig({
             ]
         }
     },
-
     modules: [
         '@nuxt/ui',
         '@pinia/nuxt',
@@ -21,14 +19,6 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxtjs/i18n',
     ],
-
-
-    runtimeConfig: {
-        public: {
-            nodeEnv: process.env.NODE_ENV,
-        }
-    },
-
     i18n: {
         locales: [
             {
@@ -38,6 +28,10 @@ export default defineNuxtConfig({
             {
                 code: 'fr',
                 file: 'fr.js'
+            },
+            {
+                code: 'zh',
+                file: 'zh-TW.js'
             },
             {
                 code: 'zh-HK',
@@ -56,9 +50,7 @@ export default defineNuxtConfig({
         langDir: 'locales/',
         defaultLocale: 'en'
     },
-
     compatibilityDate: '2025-03-07',
-
     vite: {
         build: {
             sourcemap: false,

@@ -53,10 +53,12 @@ export default {
     'noRecipe': '冇食譜',
     'food2Avoid': {
       'title': '唔食得嘅',
+      'description': '呢啲食物唔適合你',
       'placeholder': '例如：蝦,蟹......',
     },
     'favorite': {
       'title': '鍾意食嘅',
+      'description': '呢啲係你鍾意食嘅',
       'placeholder': '例如：蘋果, 香蕉......',
     },
     'foodAdded': '食物已加咗',

@@ -20,7 +20,7 @@
 const { t } = useI18n()
 import {ref, onMounted} from 'vue'
 
-// Replace with the actual path to your logo image
+// Replace it with the actual path to your logo image
 const logo = '/images/happyjj.png'
 const visible = ref(true)
 
