@@ -49,66 +49,68 @@ OUTPUT REQUIREMENTS:
         apiKey: aiApiSecret,
     });
 
+    const jsonSchema = {
+        name: 'recipe_response',
+        strict: true,
+        schema: {
+            type: 'object',
+            properties: {
+                name: {
+                    type: 'string',
+                    description: 'Unique and appealing recipe name'
+                },
+                steps: {
+                    type: 'array',
+                    items: {type: 'string'},
+                    description: 'Cooking steps in order'
+                },
+                ingredients: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            name: {type: 'string'},
+                            quantity: {type: 'number'},
+                            unit: {type: 'string'}
+                        },
+                        required: ['name', 'quantity', 'unit'],
+                        additionalProperties: false
+                    }
+                },
+                time: {
+                    type: 'object',
+                    properties: {
+                        time: {type: 'number'},
+                        unit: {
+                            type: 'string',
+                            enum: ['minutes', 'hours', 'days']
+                        }
+                    },
+                    required: ['time', 'unit'],
+                    additionalProperties: false
+                },
+                difficulty: {
+                    type: 'string',
+                    enum: ['easy', 'medium', 'hard']
+                },
+                tags: {
+                    type: 'array',
+                    items: {type: 'string'},
+                    description: 'Tags in the specified locale language'
+                }
+            },
+            required: ['name', 'steps', 'ingredients', 'time', 'difficulty', 'tags'],
+            additionalProperties: false
+        }
+    }
+
     // Call the chat completions endpoint with structured output.
     return client.chat.completions.create({
         model: aiApiEndpointModel,
         messages: [{role: 'user', content: prompt}],
         response_format: {
             type: 'json_schema',
-            json_schema: {
-                name: 'recipe_response',
-                strict: true,
-                schema: {
-                    type: 'object',
-                    properties: {
-                        name: {
-                            type: 'string',
-                            description: 'Unique and appealing recipe name'
-                        },
-                        steps: {
-                            type: 'array',
-                            items: {type: 'string'},
-                            description: 'Cooking steps in order'
-                        },
-                        ingredients: {
-                            type: 'array',
-                            items: {
-                                type: 'object',
-                                properties: {
-                                    name: {type: 'string'},
-                                    quantity: {type: 'number'},
-                                    unit: {type: 'string'}
-                                },
-                                required: ['name', 'quantity', 'unit'],
-                                additionalProperties: false
-                            }
-                        },
-                        time: {
-                            type: 'object',
-                            properties: {
-                                time: {type: 'number'},
-                                unit: {
-                                    type: 'string',
-                                    enum: ['minutes', 'hours', 'days']
-                                }
-                            },
-                            required: ['time', 'unit'],
-                            additionalProperties: false
-                        },
-                        difficulty: {
-                            type: 'string',
-                            enum: ['easy', 'medium', 'hard']
-                        },
-                        tags: {
-                            type: 'array',
-                            items: {type: 'string'},
-                            description: 'Tags in the specified locale language'
-                        }
-                    },
-                    required: ['name', 'steps', 'ingredients', 'time', 'difficulty', 'tags'],
-                    additionalProperties: false
-                }
-            }
+            json_schema: jsonSchema
         }
     });
 });

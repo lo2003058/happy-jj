@@ -46,7 +46,6 @@ export default defineNuxtConfig({
                 file: 'zh-CN.js'
             }
         ],
-        lazy: true,
         langDir: 'locales/',
         defaultLocale: 'en'
     },
