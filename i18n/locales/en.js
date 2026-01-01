@@ -13,8 +13,8 @@ export default {
   "language": 'Language',
   "resetButton": 'Reset to default?',
   "clearAllEvents": 'Clear calendar?',
-  "safe": 'Safe',
-  'danger': 'Danger',
+  "safe": 'Rest period',
+  'danger': 'Ovulation period',
   'menstruation': 'Menstruation',
   'tools': 'Tools',
   'projectStatus': {

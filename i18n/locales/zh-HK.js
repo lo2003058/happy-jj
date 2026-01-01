@@ -13,8 +13,8 @@ export default {
   "language": '語言',
   "resetButton": '返去原廠設定?',
   "clearAllEvents": '清晒所有日子?',
-  "safe": '安全期',
-  'danger': '危險期',
+  "safe": '安穩期',
+  'danger': '排卵期',
   'menstruation': '大姨媽',
   'tools': '架生',
   'projectStatus': {

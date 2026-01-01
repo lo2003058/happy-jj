@@ -13,8 +13,8 @@ export default {
   "language": '語言',
   "resetButton": '重置為預設值?',
   "clearAllEvents": '清除日曆資料?',
-  "safe": '安全',
-  'danger': '危險',
+  "safe": '安穩期',
+  'danger': '排卵期',
   'menstruation': '月經',
   'tools': '工具',
   'projectStatus': {
