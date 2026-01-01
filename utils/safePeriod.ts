@@ -11,20 +11,20 @@ export function calculateSafePeriodEvents(
     borderColor: string;
 }[] {
     // Define constants for titles and colors using the passed-in translation function.
-    const safeColor = "#00c951";
-    const dangerColor = "#fb2c36";
-    const menstruationColor = "#62748e";
-    const firstDayColor = "#fcc800"; // Yellow for the first day of menstruation
+    const safeColor: string = "#00c951";
+    const dangerColor: string = "#fb2c36";
+    const menstruationColor: string = "#62748e";
+    const firstDayColor: string = "#fcc800"; // Yellow for the first day of menstruation
     const safeTitle = t('safe');
     const dangerTitle = t('danger');
     const menstruationTitle = t('menstruation');
 
     // Define cycle configuration
-    const cycleLength = 26;
-    const menstruationPeriodDays = 6;  // First 6 days are menstruation period (dayOffset 0-5)
-    const dangerPeriodRange = [8, 13];   // Day offsets 8-13
+    const cycleLength: number = 26;
+    const menstruationPeriodDays: number = 6;  // First 6 days are menstruation period (dayOffset 0-5)
+    const dangerPeriodRange: [number, number] = [8, 13];   // Day offsets 8-13
 
-    // If no dates provided, return empty array
+    // If no dates provided, return an empty array
     if (!firstDayDates || firstDayDates.length === 0) {
         return [];
     }

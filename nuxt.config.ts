@@ -19,6 +19,9 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxtjs/i18n',
     ],
+    piniaPersistedstate: {
+        storage: 'localStorage',
+    },
     i18n: {
         locales: [
             {

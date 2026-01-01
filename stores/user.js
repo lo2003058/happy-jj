@@ -61,5 +61,20 @@ export const useUserStore = defineStore('user', {
       this.aiApiSecret = aiApiSecret
     },
   },
-  persist: true,
+  persist: {
+    storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+    key: 'happy-jj-user',
+    pick: [
+      'gender',
+      'theme',
+      'language',
+      'events',
+      'recipes',
+      'foods2AvoidList',
+      'favoriteFoodList',
+      'aiApiEndpointModel',
+      'aiApiEndpoint',
+      'aiApiSecret',
+    ],
+  },
 })
